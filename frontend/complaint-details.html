@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Complaint Details - InfraResolve</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-header">
+                <h2>InfraResolve</h2>
+                <p>Student Portal</p>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="student-dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="student-dashboard.html">
+                    My Complaints
+                </a>
+
+                <a href="student-dashboard.html">
+                    Report Issue
+                </a>
+
+            </nav>
+
+            <button id="logoutBtn" class="logout-btn">
+                Logout
+            </button>
+
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <div class="page-header">
+
+                <div>
+                    <h1>Complaint Details</h1>
+                    <p>View complaint information and status history.</p>
+                </div>
+
+                <a href="student-dashboard.html" class="btn">
+                    ← Back to Dashboard
+                </a>
+
+            </div>
+
+            <!-- Complaint Information -->
+            <section class="dashboard-card">
+
+                <h2 id="ticketNumber">Loading...</h2>
+
+                <div id="complaintDetails">
+
+                    <p>Loading complaint details...</p>
+
+                </div>
+
+            </section>
+
+            <!-- Status History -->
+            <section class="dashboard-card">
+
+                <h2>Status History</h2>
+
+                <div id="statusHistory">
+
+                    <p>Loading status history...</p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="js/complaint-details.js"></script>
+
+</body>
+
+</html>

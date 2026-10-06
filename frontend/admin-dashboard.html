@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>InfraResolve | Admin</title>
+
+    <link rel="stylesheet"
+          href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP NAVIGATION
+===================================================== -->
+
+<nav class="top-nav">
+
+    <!-- BRAND -->
+
+    <a href="admin-dashboard.html"
+       class="brand">
+
+        <div class="brand-logo">
+            IR
+        </div>
+
+        <div class="brand-text">
+
+            <strong>InfraResolve</strong>
+
+            <span>Campus Operations</span>
+
+        </div>
+
+    </a>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="nav-links">
+
+        <a href="admin-dashboard.html"
+           class="active">
+
+            Dashboard
+
+        </a>
+
+        <a href="#complaints">
+
+            Complaints
+
+        </a>
+
+        <a href="#assign">
+
+            Assign Staff
+
+        </a>
+
+        <a href="#analytics">
+
+            Analytics
+
+        </a>
+
+    </div>
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="nav-actions">
+
+
+        <!-- Theme -->
+
+        <button
+            class="icon-btn"
+            id="themeToggle"
+            title="Toggle dark mode">
+
+            🌙
+
+        </button>
+
+
+        <!-- Notification -->
+
+        <button
+            class="icon-btn"
+            title="Notifications">
+
+            🔔
+
+            <span class="notification-dot"></span>
+
+        </button>
+
+
+        <!-- USER -->
+
+        <div class="user-profile">
+
+            <div class="user-avatar">
+
+                A
+
+            </div>
+
+            <div class="user-info">
+
+                <strong>Admin</strong>
+
+                <span>Administrator</span>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOGOUT -->
+
+        <button
+            class="logout-btn"
+            id="logoutBtn">
+
+            Logout
+
+        </button>
+
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="dashboard-container">
+
+
+    <!-- =================================================
+         HERO
+    ================================================= -->
+
+    <section class="dashboard-hero">
+
+        <div>
+
+            <div class="welcome-label">
+
+                ADMIN PORTAL
+
+            </div>
+
+            <h1>
+
+                Good evening, Admin 👋
+
+            </h1>
+
+            <p>
+
+                Here's what's happening across your
+                campus maintenance operations.
+
+            </p>
+
+        </div>
+
+
+        <div class="hero-status">
+
+            <span class="status-dot"></span>
+
+            System operational
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         STATISTICS
+    ================================================= -->
+
+    <section class="stats-grid">
+
+
+        <!-- TOTAL -->
+
+        <div class="stat-card">
+
+            <div class="stat-top">
+
+                <div>
+
+                    <span class="stat-label">
+
+                        TOTAL COMPLAINTS
+
+                    </span>
+
+                    <div
+                        class="stat-value"
+                        id="totalComplaints">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-icon blue">
+
+                    ◉
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-footer">
+
+                All registered requests
+
+            </div>
+
+        </div>
+
+
+
+        <!-- OPEN -->
+
+        <div class="stat-card">
+
+            <div class="stat-top">
+
+                <div>
+
+                    <span class="stat-label">
+
+                        OPEN
+
+                    </span>
+
+                    <div
+                        class="stat-value"
+                        id="openComplaints">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-icon orange">
+
+                    !
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-footer">
+
+                Awaiting assignment
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROGRESS -->
+
+        <div class="stat-card">
+
+            <div class="stat-top">
+
+                <div>
+
+                    <span class="stat-label">
+
+                        IN PROGRESS
+
+                    </span>
+
+                    <div
+                        class="stat-value"
+                        id="progressComplaints">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-icon purple">
+
+                    ↻
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-footer">
+
+                Currently being handled
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CRITICAL -->
+
+        <div class="stat-card critical-card">
+
+            <div class="stat-top">
+
+                <div>
+
+                    <span class="stat-label">
+
+                        CRITICAL
+
+                    </span>
+
+                    <div
+                        class="stat-value"
+                        id="criticalComplaints">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-icon red">
+
+                    !
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-footer">
+
+                Requires immediate attention
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         MAIN GRID
+    ================================================= -->
+
+    <section class="main-grid">
+
+
+        <!-- =================================================
+             COMPLAINTS
+        ================================================= -->
+
+        <div
+            class="large-card"
+            id="complaints">
+
+
+            <!-- HEADER -->
+
+            <div class="card-header">
+
+                <div>
+
+                    <div class="section-label">
+
+                        MAINTENANCE REQUESTS
+
+                    </div>
+
+                    <h2>
+
+                        Recent Complaints
+
+                    </h2>
+
+                    <p>
+
+                        Latest issues reported by students.
+
+                    </p>
+
+                </div>
+
+
+                <div class="table-count">
+
+                    Live data
+
+                </div>
+
+            </div>
+
+
+            <!-- TABLE -->
+
+            <div class="table-container">
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Ticket
+                            </th>
+
+                            <th>
+                                Issue
+                            </th>
+
+                            <th>
+                                Student
+                            </th>
+
+                            <th>
+                                Category
+                            </th>
+
+                            <th>
+                                Location
+                            </th>
+
+                            <th>
+                                Priority
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Created
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="adminComplaintsTable">
+
+                        <tr>
+
+                            <td
+                                colspan="8"
+                                class="empty-state">
+
+                                Loading complaints...
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             QUICK ACTIONS
+        ================================================= -->
+
+        <aside class="side-card">
+
+
+            <div class="section-label">
+
+                QUICK ACTIONS
+
+            </div>
+
+
+            <h2>
+
+                Manage Campus
+
+            </h2>
+
+
+            <p class="side-description">
+
+                Quickly access the most common
+                administration tasks.
+
+            </p>
+
+
+            <a
+                href="#assign"
+                class="quick-action">
+
+                <div class="quick-icon blue">
+
+                    +
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        Assign Staff
+                    </strong>
+
+                    <span>
+                        Send a complaint to maintenance
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+            <a
+                href="#complaints"
+                class="quick-action">
+
+                <div class="quick-icon purple">
+
+                    ≡
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        View Complaints
+                    </strong>
+
+                    <span>
+                        Review all maintenance requests
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+            <a
+                href="#analytics"
+                class="quick-action">
+
+                <div class="quick-icon green">
+
+                    ◈
+
+                </div>
+
+                <div>
+
+                    <strong>
+                        Analytics
+                    </strong>
+
+                    <span>
+                        Review system activity
+                    </span>
+
+                </div>
+
+                <b>
+                    →
+                </b>
+
+            </a>
+
+
+        </aside>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         ASSIGN STAFF
+    ================================================= -->
+
+    <section
+        class="large-card assignment-card"
+        id="assign">
+
+
+        <div class="card-header">
+
+            <div>
+
+                <div class="section-label">
+
+                    WORK MANAGEMENT
+
+                </div>
+
+                <h2>
+
+                    Assign Maintenance Staff
+
+                </h2>
+
+                <p>
+
+                    Route a complaint to a maintenance
+                    team member for resolution.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="assignment-content">
+
+
+            <form id="assignmentForm">
+
+
+                <div class="form-grid">
+
+
+                    <!-- COMPLAINT -->
+
+                    <div class="form-group">
+
+                        <label for="complaintId">
+
+                            Complaint ID
+
+                        </label>
+
+                        <input
+                            type="number"
+                            id="complaintId"
+                            placeholder="Example: 5"
+                            required>
+
+                        <span class="input-help">
+
+                            Enter the complaint ID.
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- STAFF -->
+
+                    <div class="form-group">
+
+                        <label for="staffId">
+
+                            Staff User ID
+
+                        </label>
+
+                        <input
+                            type="number"
+                            id="staffId"
+                            placeholder="Example: 2"
+                            required>
+
+                        <span class="input-help">
+
+                            Enter the maintenance staff ID.
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- BUTTON -->
+
+                    <div class="form-submit">
+
+                        <button
+                            type="submit"
+                            class="primary-btn">
+
+                            Assign Complaint
+
+                            <span>
+                                →
+                            </span>
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         ANALYTICS
+    ================================================= -->
+
+    <section
+        id="analytics"
+        class="analytics-section">
+
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+
+                    SYSTEM INSIGHTS
+
+                </div>
+
+                <h2>
+
+                    Operational Overview
+
+                </h2>
+
+                <p>
+
+                    A quick snapshot of the InfraResolve
+                    platform.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="analytics-grid">
+
+
+            <!-- PLATFORM -->
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon blue">
+
+                    ✓
+
+                </div>
+
+                <div>
+
+                    <span>
+                        PLATFORM
+                    </span>
+
+                    <strong>
+                        Active
+                    </strong>
+
+                    <p>
+                        InfraResolve is operational.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- DATABASE -->
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon green">
+
+                    ◆
+
+                </div>
+
+                <div>
+
+                    <span>
+                        DATABASE
+                    </span>
+
+                    <strong>
+                        Connected
+                    </strong>
+
+                    <p>
+                        Complaint records are available.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- WORKFLOW -->
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon purple">
+
+                    ↻
+
+                </div>
+
+                <div>
+
+                    <span>
+                        WORKFLOW
+                    </span>
+
+                    <strong>
+                        Active
+                    </strong>
+
+                    <p>
+                        Assignment and resolution workflow
+                        is enabled.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="js/theme.js"></script>
+
+<script src="js/admin.js"></script>
+
+
+</body>
+
+</html>

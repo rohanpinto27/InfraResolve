@@ -1,0 +1,1 @@
+console.log("InfraResolve frontend loaded successfully!");

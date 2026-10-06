@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>InfraResolve | Staff Portal</title>
+
+    <link rel="stylesheet"
+          href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP NAVIGATION
+===================================================== -->
+
+<nav class="top-nav">
+
+
+    <!-- BRAND -->
+
+    <a href="staff-dashboard.html"
+       class="brand">
+
+        <div class="brand-logo">
+            IR
+        </div>
+
+        <div class="brand-text">
+
+            <strong>InfraResolve</strong>
+
+            <span>Maintenance Portal</span>
+
+        </div>
+
+    </a>
+
+
+
+    <!-- NAVIGATION -->
+
+    <div class="nav-links">
+
+        <a href="staff-dashboard.html"
+           class="active">
+
+            Dashboard
+
+        </a>
+
+        <a href="#assigned">
+
+            Assigned Issues
+
+        </a>
+
+        <a href="#updates">
+
+            Updates
+
+        </a>
+
+    </div>
+
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="nav-actions">
+
+
+        <!-- DARK MODE -->
+
+        <button
+            class="icon-btn"
+            id="themeToggle"
+            title="Toggle dark mode">
+
+            🌙
+
+        </button>
+
+
+
+        <!-- NOTIFICATIONS -->
+
+        <button
+            class="icon-btn"
+            title="Notifications">
+
+            🔔
+
+            <span class="notification-dot"></span>
+
+        </button>
+
+
+
+        <!-- STAFF PROFILE -->
+
+        <div class="user-profile">
+
+
+            <div class="user-avatar">
+
+                M
+
+            </div>
+
+
+            <div class="user-info">
+
+                <strong id="staffName">
+                    Maintenance Staff
+                </strong>
+
+                <span>
+                    Maintenance Staff
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- LOGOUT -->
+
+        <button
+            id="logoutBtn"
+            class="logout-btn">
+
+            Logout
+
+        </button>
+
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="dashboard-container">
+
+
+    <!-- =================================================
+         HERO
+    ================================================= -->
+
+    <section class="dashboard-hero">
+
+
+        <div>
+
+
+            <div class="welcome-label">
+
+                MAINTENANCE PORTAL
+
+            </div>
+
+
+            <h1>
+
+                Welcome back, Maintenance Staff 👋
+
+            </h1>
+
+
+            <p>
+
+                Manage assigned campus issues and keep
+                maintenance requests moving toward resolution.
+
+            </p>
+
+
+        </div>
+
+
+
+        <a
+            href="#assigned"
+            class="hero-action">
+
+            View Assigned Issues →
+
+        </a>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         STATISTICS
+    ================================================= -->
+
+    <section class="stats-grid">
+
+
+        <!-- ASSIGNED -->
+
+        <div class="stat-card">
+
+
+            <div class="stat-top">
+
+
+                <div>
+
+                    <span class="stat-label">
+                        ASSIGNED
+                    </span>
+
+
+                    <div
+                        class="stat-value"
+                        id="assignedCount">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-icon blue">
+
+                    ◉
+
+                </div>
+
+
+            </div>
+
+
+            <div class="stat-footer">
+
+                Issues assigned to you
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- IN PROGRESS -->
+
+        <div class="stat-card">
+
+
+            <div class="stat-top">
+
+
+                <div>
+
+                    <span class="stat-label">
+                        IN PROGRESS
+                    </span>
+
+
+                    <div
+                        class="stat-value"
+                        id="progressCount">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-icon purple">
+
+                    ↻
+
+                </div>
+
+
+            </div>
+
+
+            <div class="stat-footer">
+
+                Currently being handled
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- RESOLVED -->
+
+        <div class="stat-card">
+
+
+            <div class="stat-top">
+
+
+                <div>
+
+                    <span class="stat-label">
+                        RESOLVED
+                    </span>
+
+
+                    <div
+                        class="stat-value"
+                        id="resolvedCount">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-icon green">
+
+                    ✓
+
+                </div>
+
+
+            </div>
+
+
+            <div class="stat-footer">
+
+                Successfully completed
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- HIGH PRIORITY -->
+
+        <div class="stat-card">
+
+
+            <div class="stat-top">
+
+
+                <div>
+
+                    <span class="stat-label">
+                        HIGH PRIORITY
+                    </span>
+
+
+                    <div
+                        class="stat-value"
+                        id="highPriorityCount">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-icon orange">
+
+                    !
+
+                </div>
+
+
+            </div>
+
+
+            <div class="stat-footer">
+
+                Requires attention
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         ASSIGNED COMPLAINTS
+    ================================================= -->
+
+    <section
+        class="large-card staff-section"
+        id="assigned">
+
+
+        <div class="card-header">
+
+
+            <div>
+
+
+                <div class="section-label">
+
+                    WORK QUEUE
+
+                </div>
+
+
+                <h2>
+
+                    Assigned Complaints
+
+                </h2>
+
+
+                <p>
+
+                    Issues assigned to you by the administrator.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="table-count">
+
+                Maintenance requests
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- TABLE -->
+
+        <div class="table-container">
+
+
+            <table>
+
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Ticket
+                        </th>
+
+                        <th>
+                            Issue
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                        <th>
+                            Location
+                        </th>
+
+                        <th>
+                            Priority
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+
+                <tbody
+                    id="assignedComplaintsTable">
+
+                    <tr>
+
+                        <td
+                            colspan="7"
+                            class="empty-state">
+
+                            Loading assigned complaints...
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         UPDATE COMPLAINT
+    ================================================= -->
+
+    <section
+        class="large-card staff-section"
+        id="updates">
+
+
+        <div class="card-header">
+
+
+            <div>
+
+
+                <div class="section-label">
+
+                    WORK UPDATE
+
+                </div>
+
+
+                <h2>
+
+                    Update Complaint
+
+                </h2>
+
+
+                <p>
+
+                    Update the issue status and record the
+                    work performed.
+
+                </p>
+
+
+            </div>
+
+
+
+            <div class="form-status">
+
+                ● Ready to update
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="staff-form-container">
+
+
+            <form
+                id="updateComplaintForm"
+                class="complaint-form">
+
+
+                <!-- ROW -->
+
+                <div class="form-row">
+
+
+                    <!-- TICKET -->
+
+                    <div class="form-group">
+
+
+                        <label for="ticketNumber">
+
+                            Ticket Number
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            id="ticketNumber"
+                            placeholder="Example: IR-000001"
+                            required>
+
+
+                        <span class="input-help">
+
+                            Enter the ticket you are working on.
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- STATUS -->
+
+                    <div class="form-group">
+
+
+                        <label for="status">
+
+                            New Status
+
+                        </label>
+
+
+                        <select
+                            id="status"
+                            required>
+
+
+                            <option value="">
+
+                                Select Status
+
+                            </option>
+
+
+                            <option value="IN_PROGRESS">
+
+                                In Progress
+
+                            </option>
+
+
+                            <option value="RESOLVED">
+
+                                Resolved
+
+                            </option>
+
+
+                        </select>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- WORK NOTE -->
+
+                <div class="form-group">
+
+
+                    <label for="workNote">
+
+                        Work Note
+
+                    </label>
+
+
+                    <textarea
+                        id="workNote"
+                        rows="5"
+                        placeholder="Describe the work performed, materials used, or any important details..."
+                        required></textarea>
+
+
+                    <span class="input-help">
+
+                        Add useful details so administrators
+                        and students can understand what was done.
+
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- FOOTER -->
+
+                <div class="form-footer">
+
+
+                    <div class="form-tip">
+
+                        <span>🛠️</span>
+
+                        <span>
+
+                            Update the status only after
+                            completing the corresponding work.
+
+                        </span>
+
+                    </div>
+
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn">
+
+                        Update Complaint
+
+                        <span>→</span>
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="js/theme.js"></script>
+
+<script src="js/staff.js"></script>
+
+
+</body>
+
+</html>

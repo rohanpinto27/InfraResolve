@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>InfraResolve | Student Portal</title>
+
+    <link rel="stylesheet"
+          href="css/dashboard.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP NAVIGATION
+===================================================== -->
+
+<nav class="top-nav">
+
+    <!-- BRAND -->
+
+    <a href="student-dashboard.html"
+       class="brand">
+
+        <div class="brand-logo">
+            IR
+        </div>
+
+        <div class="brand-text">
+
+            <strong>InfraResolve</strong>
+
+            <span>Student Portal</span>
+
+        </div>
+
+    </a>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="nav-links">
+
+        <a href="student-dashboard.html"
+           class="active">
+
+            Dashboard
+
+        </a>
+
+        <a href="#newComplaint">
+
+            Report Issue
+
+        </a>
+
+        <a href="#complaints">
+
+            My Complaints
+
+        </a>
+
+    </div>
+
+
+    <!-- RIGHT SIDE -->
+
+    <div class="nav-actions">
+
+
+        <!-- DARK MODE -->
+
+        <button
+            class="icon-btn"
+            id="themeToggle"
+            title="Toggle dark mode">
+
+            🌙
+
+        </button>
+
+
+        <!-- NOTIFICATION -->
+
+        <button
+            class="icon-btn"
+            title="Notifications">
+
+            🔔
+
+            <span class="notification-dot"></span>
+
+        </button>
+
+
+        <!-- STUDENT -->
+
+        <div class="user-profile">
+
+            <div class="user-avatar">
+
+                R
+
+            </div>
+
+            <div class="user-info">
+
+                <strong id="studentName">
+                    Student
+                </strong>
+
+                <span>
+                    Student
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOGOUT -->
+
+        <button
+            id="logoutBtn"
+            class="logout-btn">
+
+            Logout
+
+        </button>
+
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="dashboard-container">
+
+
+    <!-- =================================================
+         HERO
+    ================================================= -->
+
+    <section class="dashboard-hero">
+
+        <div>
+
+            <div class="welcome-label">
+
+                STUDENT PORTAL
+
+            </div>
+
+
+            <h1>
+
+                Welcome back, <span id="welcomeName">Student</span> 👋
+
+            </h1>
+
+
+            <p>
+
+                Report campus issues and track your
+                maintenance requests in one place.
+
+            </p>
+
+        </div>
+
+
+        <a
+            href="#newComplaint"
+            class="hero-action">
+
+            + Report an Issue
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =================================================
+         STATISTICS
+    ================================================= -->
+
+    <section class="stats-grid">
+
+
+        <!-- TOTAL -->
+
+        <div class="stat-card">
+
+            <div class="stat-top">
+
+                <div>
+
+                    <span class="stat-label">
+                        MY COMPLAINTS
+                    </span>
+
+                    <div
+                        class="stat-value"
+                        id="totalComplaints">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-icon blue">
+
+                    ◉
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-footer">
+
+                All submitted requests
+
+            </div>
+
+        </div>
+
+
+
+        <!-- OPEN -->
+
+        <div class="stat-card">
+
+            <div class="stat-top">
+
+                <div>
+
+                    <span class="stat-label">
+                        OPEN
+                    </span>
+
+                    <div
+                        class="stat-value"
+                        id="openComplaints">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-icon orange">
+
+                    !
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-footer">
+
+                Waiting for assignment
+
+            </div>
+
+        </div>
+
+
+
+        <!-- IN PROGRESS -->
+
+        <div class="stat-card">
+
+            <div class="stat-top">
+
+                <div>
+
+                    <span class="stat-label">
+                        IN PROGRESS
+                    </span>
+
+                    <div
+                        class="stat-value"
+                        id="progressComplaints">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-icon purple">
+
+                    ↻
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-footer">
+
+                Currently being handled
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RESOLVED -->
+
+        <div class="stat-card">
+
+            <div class="stat-top">
+
+                <div>
+
+                    <span class="stat-label">
+                        RESOLVED
+                    </span>
+
+                    <div
+                        class="stat-value"
+                        id="resolvedComplaints">
+
+                        0
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-icon green">
+
+                    ✓
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-footer">
+
+                Successfully resolved
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         REPORT ISSUE
+    ================================================= -->
+
+    <section
+        class="large-card student-section"
+        id="newComplaint">
+
+
+        <div class="card-header">
+
+            <div>
+
+                <div class="section-label">
+
+                    MAINTENANCE REQUEST
+
+                </div>
+
+
+                <h2>
+
+                    Report a New Issue
+
+                </h2>
+
+
+                <p>
+
+                    Tell us what is wrong and our maintenance
+                    team will take care of it.
+
+                </p>
+
+            </div>
+
+
+            <div class="form-status">
+
+                ● Ready to submit
+
+            </div>
+
+        </div>
+
+
+
+        <div class="student-form-container">
+
+
+            <form
+                id="complaintForm"
+                class="complaint-form">
+
+
+                <!-- ROW 1 -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="title">
+
+                            Issue Title
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="title"
+                            placeholder="Example: Wi-Fi not working"
+                            required>
+
+                        <span class="input-help">
+
+                            Give your issue a short title.
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="category">
+
+                            Category
+
+                        </label>
+
+                        <select
+                            id="category"
+                            required>
+
+                            <option value="">
+                                Select Category
+                            </option>
+
+                            <option value="PLUMBING">
+                                Plumbing
+                            </option>
+
+                            <option value="ELECTRICAL">
+                                Electrical
+                            </option>
+
+                            <option value="INTERNET">
+                                Internet / Wi-Fi
+                            </option>
+
+                            <option value="CLEANING">
+                                Cleaning
+                            </option>
+
+                            <option value="FURNITURE">
+                                Furniture
+                            </option>
+
+                            <option value="CIVIL">
+                                Civil / Building
+                            </option>
+
+                            <option value="OTHER">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ROW 2 -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="location">
+
+                            Location
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            placeholder="Example: Block A"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="roomNumber">
+
+                            Room Number
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="roomNumber"
+                            placeholder="Example: A-204">
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="description">
+
+                        Describe the Issue
+
+                    </label>
+
+                    <textarea
+                        id="description"
+                        rows="5"
+                        placeholder="Explain what happened, where it happened, and any other useful details..."
+                        required></textarea>
+
+                    <span class="input-help">
+
+                        Please provide enough detail to help the
+                        maintenance team understand the problem.
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- FORM FOOTER -->
+
+                <div class="form-footer">
+
+                    <div class="form-tip">
+
+                        <span>💡</span>
+
+                        <span>
+                            Critical issues such as electrical
+                            danger or gas leaks are automatically
+                            prioritized.
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn">
+
+                        Submit Complaint
+
+                        <span>→</span>
+
+                    </button>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         MY COMPLAINTS
+    ================================================= -->
+
+    <section
+        class="large-card student-section"
+        id="complaints">
+
+
+        <div class="card-header">
+
+            <div>
+
+                <div class="section-label">
+
+                    REQUEST HISTORY
+
+                </div>
+
+
+                <h2>
+
+                    My Complaints
+
+                </h2>
+
+
+                <p>
+
+                    Track the progress of your submitted
+                    maintenance requests.
+
+                </p>
+
+            </div>
+
+
+            <div class="table-count">
+
+                Your requests
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TABLE -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Ticket
+                        </th>
+
+                        <th>
+                            Issue
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                        <th>
+                            Priority
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                        <th>
+                            Feedback
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="complaintsTable">
+
+                    <tr>
+
+                        <td
+                            colspan="7"
+                            class="empty-state">
+
+                            Loading complaints...
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    </section>
+
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FEEDBACK MODAL
+===================================================== -->
+
+<div
+    id="feedbackModal"
+    class="feedback-modal">
+
+
+    <div class="feedback-box">
+
+
+        <!-- HEADER -->
+
+        <div class="feedback-header">
+
+            <div>
+
+                <div class="section-label">
+
+                    RESOLUTION FEEDBACK
+
+                </div>
+
+                <h2>
+
+                    How was the resolution?
+
+                </h2>
+
+                <p>
+
+                    Your feedback helps improve campus
+                    maintenance services.
+
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                id="closeFeedbackBtn"
+                class="modal-close">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <form id="feedbackForm">
+
+
+            <input
+                type="hidden"
+                id="feedbackComplaintId">
+
+
+
+            <!-- RATING -->
+
+            <div class="form-group">
+
+                <label for="rating">
+
+                    Rating
+
+                </label>
+
+
+                <select
+                    id="rating"
+                    required>
+
+                    <option value="">
+                        Select Rating
+                    </option>
+
+                    <option value="5">
+                        5 - Excellent
+                    </option>
+
+                    <option value="4">
+                        4 - Good
+                    </option>
+
+                    <option value="3">
+                        3 - Average
+                    </option>
+
+                    <option value="2">
+                        2 - Poor
+                    </option>
+
+                    <option value="1">
+                        1 - Very Poor
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- COMMENT -->
+
+            <div class="form-group">
+
+                <label for="feedbackComment">
+
+                    Comment
+
+                </label>
+
+
+                <textarea
+                    id="feedbackComment"
+                    rows="4"
+                    placeholder="Share your feedback about the resolution..."
+                    required></textarea>
+
+            </div>
+
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="submit"
+                class="primary-btn">
+
+                Submit Feedback
+
+                <span>→</span>
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="js/theme.js"></script>
+
+<script src="js/student.js"></script>
+
+
+</body>
+
+</html>
