@@ -3,8 +3,7 @@ import bcrypt
 import jwt
 from datetime import datetime, timedelta
 
-from config.database import get_db_connection
-
+from backend.config.database import get_db_connection
 
 auth_bp = Blueprint("auth", __name__)
 

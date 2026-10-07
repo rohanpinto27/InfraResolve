@@ -1,8 +1,8 @@
 from flask import Blueprint, request, jsonify
-from config.database import get_db_connection
-from middleware.auth_middleware import token_required, role_required
-from services.priority_engine import calculate_priority
-from services.duplicate_detector import find_duplicate_complaint
+from backend.config.database import get_db_connection
+from backend.middleware.auth_middleware import token_required, role_required
+from backend.services.priority_engine import calculate_priority
+from backend.services.duplicate_detector import find_duplicate_complaint
 
 complaints_bp = Blueprint("complaints", __name__)
 

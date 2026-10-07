@@ -2,10 +2,10 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from config.database import get_db_connection
-from routes.auth import auth_bp
-from middleware.auth_middleware import token_required
-from routes.complaints import complaints_bp
+from backend.config.database import get_db_connection
+from backend.routes.auth import auth_bp
+from backend.middleware.auth_middleware import token_required
+from backend.routes.complaints import complaints_bp
 
 load_dotenv()
 
