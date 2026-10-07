@@ -19,7 +19,7 @@ async function loadComplaintDetails() {
     try {
 
         const response = await fetch(
-            `http://127.0.0.1:5000/api/complaints/${complaintId}`,
+            `${API_BASE_URL}/api/complaints/${complaintId}`,
             {
                 method: "GET",
                 headers: {
@@ -98,7 +98,7 @@ async function loadStatusHistory() {
     try {
 
         const response = await fetch(
-            `http://127.0.0.1:5000/api/complaints/${complaintId}/updates`,
+            `${API_BASE_URL}/api/complaints/${complaintId}/updates`,
             {
                 method: "GET",
                 headers: {

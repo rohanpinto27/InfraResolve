@@ -76,7 +76,7 @@ if (assignmentForm) {
 
                 const response =
                     await fetch(
-                        `http://127.0.0.1:5000/api/complaints/${complaintId}/assign`,
+                        `${API_BASE_URL}/api/complaints/${complaintId}/assign`,
                         {
                             method: "POST",
 
@@ -182,7 +182,7 @@ async function loadAdminComplaints() {
 
         const response =
             await fetch(
-                "http://127.0.0.1:5000/api/complaints/admin/all",
+                `${API_BASE_URL}/api/complaints/admin/all`,
                 {
                     method: "GET",
 

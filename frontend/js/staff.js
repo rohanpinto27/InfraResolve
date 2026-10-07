@@ -38,7 +38,7 @@ if (updateComplaintForm) {
             try {
 
                 const response = await fetch(
-                    `http://127.0.0.1:5000/api/complaints/${ticketNumber}/status`,
+                    `${API_BASE_URL}/api/complaints/${ticketNumber}/status`,
     {
         method: "PUT",
         headers: {
@@ -124,7 +124,7 @@ async function loadAssignedComplaints() {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:5000/api/complaints/assigned",
+            `${API_BASE_URL}/api/complaints/assigned`,
             {
                 method: "GET",
                 headers: {

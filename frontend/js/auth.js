@@ -34,7 +34,7 @@ if (loginForm) {
 
                 const response =
                     await fetch(
-                        "http://127.0.0.1:5000/api/auth/login",
+                        `${API_BASE_URL}/api/auth/login`,
                         {
                             method: "POST",
 
@@ -167,7 +167,7 @@ if (registerForm) {
 
                 const response =
                     await fetch(
-                        "http://127.0.0.1:5000/api/auth/register",
+                        `${API_BASE_URL}/api/auth/register`,
                         {
                             method: "POST",
 

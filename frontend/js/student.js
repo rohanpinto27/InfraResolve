@@ -55,7 +55,7 @@ if (complaintForm) {
             try {
 
                 const response = await fetch(
-                    "http://127.0.0.1:5000/api/complaints/",
+                    `${API_BASE_URL}/api/complaints/`,
                     {
                         method: "POST",
 
@@ -161,7 +161,7 @@ async function loadComplaints() {
     try {
 
         const response = await fetch(
-            "http://127.0.0.1:5000/api/complaints/",
+            `${API_BASE_URL}/api/complaints/`,
             {
                 method: "GET",
 
@@ -343,14 +343,14 @@ async function confirmResolution(complaintId) {
     try {
 
         const response = await fetch(
-            `http://127.0.0.1:5000/api/complaints/${complaintId}/confirm`,
-            {
-                method: "PUT",
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
-            }
-        );
+    `${API_BASE_URL}/api/complaints/${complaintId}/confirm`,
+    {
+        method: "PUT",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    }
+);
 
         const data = await response.json();
 
@@ -457,28 +457,28 @@ if (feedbackForm) {
             try {
 
                 const response =
-                    await fetch(
-                        `http://127.0.0.1:5000/api/complaints/${complaintId}/feedback`,
-                        {
-                            method: "POST",
+    await fetch(
+        `${API_BASE_URL}/api/complaints/${complaintId}/feedback`,
+        {
+            method: "POST",
 
-                            headers: {
-                                "Content-Type":
-                                    "application/json",
+            headers: {
+                "Content-Type":
+                    "application/json",
 
-                                "Authorization":
-                                    `Bearer ${token}`
-                            },
+                "Authorization":
+                    `Bearer ${token}`
+            },
 
-                            body: JSON.stringify({
-                                rating:
-                                    parseInt(rating),
+            body: JSON.stringify({
+                rating:
+                    parseInt(rating),
 
-                                comment:
-                                    comment
-                            })
-                        }
-                    );
+                comment:
+                    comment
+            })
+        }
+    );
 
 
                 const data =
@@ -571,7 +571,7 @@ async function hasFeedback(complaintId) {
     try {
 
         const response = await fetch(
-            `http://127.0.0.1:5000/api/complaints/${complaintId}/feedback`,
+            `${API_BASE_URL}/api/complaints/${complaintId}/feedback`,
             {
                 method: "GET",
                 headers: {
