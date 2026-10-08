@@ -7,6 +7,7 @@
    - Staff dark mode
    - Admin dark mode
    - Saves theme preference
+   - Dark mode is the default
 ===================================================== */
 
 
@@ -62,11 +63,16 @@ function applyTheme(theme) {
 
 /* =====================================================
    LOAD SAVED THEME
+   Dark mode is the default theme.
 ===================================================== */
 
 const savedTheme =
-    localStorage.getItem("infraresolve-theme") || "light";
+    localStorage.getItem("infraresolve-theme") || "dark";
 
+
+/* =====================================================
+   APPLY THE THEME
+===================================================== */
 
 applyTheme(savedTheme);
 
@@ -85,11 +91,13 @@ if (themeToggle) {
                 document.body.classList.contains("dark-mode");
 
 
+            /* Switch between dark and light */
+
             const newTheme =
                 isDark ? "light" : "dark";
 
 
-            /* Save preference */
+            /* Save user's preference */
 
             localStorage.setItem(
                 "infraresolve-theme",
@@ -97,7 +105,7 @@ if (themeToggle) {
             );
 
 
-            /* Apply theme */
+            /* Apply the new theme */
 
             applyTheme(newTheme);
 
