@@ -1,7 +1,14 @@
 from flask import Blueprint, request, jsonify
 import bcrypt
 import jwt
+import os
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
+from backend.config.database import get_db_connection
+
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 from backend.config.database import get_db_connection
 
@@ -113,14 +120,14 @@ def login():
         }), 401
 
     token = jwt.encode(
-        {
-            "user_id": user["user_id"],
-            "role": user["role"],
-            "exp": datetime.utcnow() + timedelta(hours=2)
-        },
-        "infraresolve-development-secret",
-        algorithm="HS256"
-    )
+    {
+        "user_id": user["user_id"],
+        "role": user["role"],
+        "exp": datetime.utcnow() + timedelta(hours=2)
+    },
+    SECRET_KEY,
+    algorithm="HS256"
+)
 
     return jsonify({
         "status": "success",
